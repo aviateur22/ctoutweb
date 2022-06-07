@@ -1,6 +1,7 @@
 <template>
   <div>
     <Navigation />
+    <Banner />
     <div class="main__container">
       <div class="container">
         <nuxt />
@@ -17,8 +18,8 @@
   .main__container{
     display: flex;
     justify-content: center;
-    min-height: calc( 100vh - var(--navbar_height));   
-    margin-top: var(--navbar_height);
+    min-height: calc( 100vh - var(--navbar_height)); 
+    background: #F7F7F5;
   } 
   
   .container{
