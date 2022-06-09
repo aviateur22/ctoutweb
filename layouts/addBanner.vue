@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="layout__banner">
     <Navigation />
     <Banner />
     <div class="main__container">
@@ -7,6 +7,7 @@
         <nuxt />
       </div>
     </div>    
+    <FooterContent />
   </div>
 </template>
 
@@ -19,7 +20,11 @@ export default {
   *{
     /* font-family: 'DM Sans', sans-serif; */
     font-family: 'Raleway', sans-serif;  
-  }  
+  }
+
+  .layout__banner{
+    animation: identifier 2s ease-in-out;
+  }
 
   .main__container{
     display: flex;
@@ -32,6 +37,16 @@ export default {
     display: flex;
     justify-content: center;
     width: 100%;
+  }  
+
+  @keyframes identifier {
+    from{
+      opacity: 0;
+    }
+
+    to{
+      opacity: 1;
+    }    
   }
 
   @media  screen and (min-width: 768px) {

@@ -1,8 +1,9 @@
 <template>
-  <div class="home__container">
-    <AboutMe />
+  <div class="home__container">    
     <TechnoContainer />
     <Hosting />
+    <AboutMe />
+    <ContactMe />
   </div>  
 </template>
 
@@ -21,7 +22,7 @@ export default {
     justify-content: center;    
     min-height: calc( 100vh - var(--navbar_height));   
     background: white;
-    width: 100%;
-    
+    width: 100%; 
+       
   }
 </style>

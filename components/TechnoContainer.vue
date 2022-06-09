@@ -3,7 +3,7 @@
     <section class="techno__title-section">      
       <!-- titre -->
       <h2 class="techno__title-text">
-        mes technologies de développement
+        technologies de développement
       </h2>  
       <!-- image + text -->
       <div class="techno__image-container">

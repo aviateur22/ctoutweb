@@ -86,6 +86,7 @@ export default {
   .article {
     position: relative;
     background-color: #EDECFF;
+    padding-bottom: 5em;
   }
 
   .article__image-container{

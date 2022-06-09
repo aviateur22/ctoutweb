@@ -74,7 +74,7 @@ export default {
 
   .banner__comment{
     color: #3C4043;
-    font-size: 1.5em;
+    font-size: 1.8em;
     padding-top: 2.5em;
     font-weight: 500;
     text-align: center;
