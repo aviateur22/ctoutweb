@@ -10,11 +10,17 @@
   </div>
 </template>
 
+<script>
+export default {
+};
+</script>
+
 <style scoped>  
   *{
     /* font-family: 'DM Sans', sans-serif; */
-    font-family: 'Raleway', sans-serif;
-  }
+    font-family: 'Raleway', sans-serif;  
+  }  
+
   .main__container{
     display: flex;
     justify-content: center;

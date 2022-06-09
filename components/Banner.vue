@@ -56,13 +56,15 @@ export default {
   }
 
   .left{    
-    bottom: -40px;
-    left: -40px;
+    bottom: -50px;
+    left: 0px;
+    animation: squareTranslateBottom 8s ease-in-out infinite;
   }
 
   .right{
-    top: -35px;
-    right: -40px;
+    top: -15px;
+    right: 0px;
+    animation: squareTranslateTop 8s ease-in-out infinite;
   }
 
   .banner--upper{
@@ -76,5 +78,53 @@ export default {
     padding-top: 2.5em;
     font-weight: 500;
     text-align: center;
+  }
+
+  @keyframes squareTranslateBottom {
+    0% {
+      
+      transform: translatey(0px);
+    }
+    50% {
+      
+      transform: translatey(-20px);
+    }
+    100% {
+      
+      transform: translatey(0px);
+    }
+  }
+
+  @keyframes squareTranslateTop {
+   0% {
+    
+    transform: translatey(0px);
+    }
+    50% {
+      
+      transform: translatey(20px);
+    }
+    100% {
+      
+      transform: translatey(0px);
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .banner__text{
+      font-size: 2.5em;
+    }
+
+   .left{          
+      left: -100px;
+    }
+
+    .right{
+      right: -140px;
+    }
+
+    .banner__image{     
+      height: 100%;
+    }    
   }
 </style>

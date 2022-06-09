@@ -4,3 +4,53 @@
     --link_size: 0.9em
 
 }
+
+h1{
+    padding-left: 1.5em;
+    color: #251AC7 !important;
+    font-weight: 800;
+    font-size: 2.0em;
+    text-transform: uppercase;
+}
+
+h2{
+    padding-left: 1.0em;
+    color: #251AC7;
+    font-weight: 500;
+    font-size: 1.5em;
+    padding-top: 1em;
+    text-transform: uppercase;
+}
+
+h3{    
+    color: #251AC7;
+    font-weight: 500;
+    font-size: 1.2em;
+}
+
+*{    
+    box-sizing: border-box; 
+  }  
+
+@media  screen and (min-width: 768px) {
+    h1{        
+        padding-left: 1.0em;      
+        font-size: 3.0em;
+    }
+    
+    h2{
+        padding-left: 1.0em;       
+        font-size: 2.0em;
+    }
+    
+    h3{    
+        color: #251AC7;
+        font-weight: 500;
+        font-size: 2em;
+    } 
+  }
+   @media  screen and (min-width: 1024px) {
+    .nav__container{
+      width: 1024px
+    }    
+  }

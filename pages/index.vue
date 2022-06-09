@@ -1,6 +1,8 @@
 <template>
   <div class="home__container">
+    <AboutMe />
     <TechnoContainer />
+    <Hosting />
   </div>  
 </template>
 
@@ -14,6 +16,7 @@ export default {
 <style scoped>
   .home__container{
     display: flex;
+    flex-direction: column;
     width: 100%;
     justify-content: center;    
     min-height: calc( 100vh - var(--navbar_height));   

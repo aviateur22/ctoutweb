@@ -1,42 +1,38 @@
-<template>
-  <div>
-    <nav class="nav">
-      <div class="nav__container">
-        <section class="nav__title-section">
-          <img class="nav__image" src="~/assets/image/logoSquare.svg" alt="icone du site fait avec des carrés bleu et vert">
-          <h1 class="nav__title">
+<template>  
+  <nav class="nav">
+    <NavigationMobile v-if="mobileMenuDisplay" @menuMobileDisplay="menuMobileDisplay" />
+    <div class="nav__container">
+      <section class="nav__title-section">
+        <img class="nav__image" src="~/assets/image/logoSquare.svg" alt="icone du site fait avec des carrés bleu et vert">
+        <h1>
+          <nuxt-link class="nav__link-item" to="/">
             CTOUTWEB
-          </h1>
-        </section>
-        <section v-if="!burgerVisibility" class="nav__list-section">
-          <ul class="nav__list">
-            <li class="nav__link">
-              <nuxt-link class="nav__link-item" to="/">
-                Accueil
-              </nuxt-link>
-            </li>
-            <li class="nav__link">
-              <nuxt-link class="nav__link-item" to="/devis">
-                Devis
-              </nuxt-link>
-            </li>
-            <li class="nav__link">
-              <nuxt-link class="nav__link-item" to="/rendez-vous">
-                Rendez-vous
-              </nuxt-link>
-            </li>
-          </ul>      
-        </section>
-        <section v-else class="nav__mobile">
-          <div class="burger">
-            <div class="line" />
-            <div class="line" />
-            <div class="line" />
-          </div>
-        </section>
-      </div>      
-    </nav>
-  </div>  
+          </nuxt-link>
+        </h1>
+      </section>
+      <section v-if="!burgerVisibility" class="nav__list-section">
+        <ul class="nav__list">
+          <li class="nav__link">
+            <nuxt-link class="nav__link-item" to="/devis">
+              Devis
+            </nuxt-link>
+          </li>
+          <li class="nav__link">
+            <nuxt-link class="nav__link-item" to="/rendez-vous">
+              Rendez-vous
+            </nuxt-link>
+          </li>
+        </ul>      
+      </section>
+      <section v-if="burgerVisibility && burgerVisibilityClick" class="nav__mobile">
+        <div class="burger" @click="menuMobileDisplay">
+          <div class="line" />
+          <div class="line" />
+          <div class="line" />
+        </div>
+      </section>
+    </div>      
+  </nav> 
 </template>
 
 <script>
@@ -45,7 +41,13 @@ export default {
     data() {
         return {           
             burgerDisplaySize: 768,
-            burgerVisibility: true
+            /**gestion icone par taille de l'écran */
+            burgerVisibility: true,
+
+            /**gestion icone suite au click  */
+            burgerVisibilityClick: true,
+
+            mobileMenuDisplay: false,            
         };
     },
     mounted() {
@@ -69,12 +71,16 @@ export default {
         * Vérification si width affichage >  burgerDisplaySize
         */
         mobileBreakPoint(screenSize){
-            console.log(this.burgerVisibility)
             if(Number(screenSize) <= Number(this.burgerDisplaySize)){
                 return true;
             }
             return false;
         },
+
+        menuMobileDisplay(){
+            this.mobileMenuDisplay = !this.mobileMenuDisplay;
+            this.burgerVisibilityClick = !this.burgerVisibilityClick;            
+        }
     },    
 };
 </script>
@@ -102,12 +108,13 @@ export default {
 
   .nav__title-section{
     position: relative;
+    display: flex;
+    align-items: center;
   }
 
-  .nav__title{
-    padding-left: 1.5em;
-    color: #251AC7;
-    font-weight: 900;
+  h1 .nav__link-item{
+    text-decoration: none;
+    color: #251AC7        
   }
 
   .nav__image{
@@ -133,7 +140,7 @@ export default {
     list-style: none;    
   }
 
-   .nav__link-item{
+  .nav__link-item{
     text-decoration: none;
     font-size: var(--link_size);
     color: #3C4043
@@ -141,6 +148,7 @@ export default {
 
   .nav__mobile{
     display: flex;
+    padding-right: 1em;
   }
 
   .burger{
@@ -166,6 +174,7 @@ export default {
       width: 768px;     
     }    
   }
+
    @media  screen and (min-width: 1024px) {
     .nav__container{
       width: 1024px
