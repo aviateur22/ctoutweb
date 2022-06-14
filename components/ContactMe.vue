@@ -22,29 +22,35 @@
       </p>
     </header>
     <main class="article__main">
-      <form class="article__form">
+      <form class="article__form" @submit.prevent="sendMessage">
+        <!-- reason -->
+        <div class="article__input-container">
+          <label for="reason" class="article__label">Raison du message</label>
+          <input type="text" name="reason" placeholder="J'ai une question" class="article__input" required>        
+        </div>
+
         <!-- email -->
         <div class="article__input-container">
           <label for="email" class="article__label">Email</label>
-          <input type="email" name="email" placeholder="toto@hotmail.fr" class="article__input">        
+          <input type="email" name="email" placeholder="toto@hotmail.fr" class="article__input" required>        
         </div>
 
         <!-- nom -->
         <div class="article__input-container">
           <label for="name" class="article__label">Nom et prénom</label>
-          <input type="text" name="name" placeholder="Jean Lagaffe" class="article__input">        
+          <input type="text" name="name" placeholder="Jean Lagaffe" class="article__input" required>        
         </div>
 
         <!-- tel -->
         <div class="article__input-container">
           <label for="phone" class="article__label">Téléphone</label>
-          <input type="text" name="phone" placeholder="06 23 ..." class="article__input">        
+          <input type="text" name="phone" placeholder="06 23 ..." class="article__input" required>        
         </div>
 
         <!-- textaera -->
         <div class="article__input-container">
           <label for="message" class="article__label">Votre message</label>
-          <textarea type="text" name="message" placeholder="votre message" class="article__input input-area" />
+          <textarea type="text" name="message" placeholder="votre message" class="article__input input-area" required />
         </div>
 
         <input type="submit" value="envoyer" class="article__submit-button"> 
@@ -55,10 +61,20 @@
 
 <script>
 export default {
+    // eslint-disable-next-line vue/require-prop-types
     data(){
         return {
             flashVisibility: false
         };
+    },
+    methods: {
+        /**
+         * Envoie d'un message via le formulaire 
+         */
+        sendMessage(e){
+            const formData = new FormData(e.target);            
+            return this.$emit('sendMessage', formData);
+        }
     }
 };
 </script>

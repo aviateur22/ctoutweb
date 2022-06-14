@@ -1,16 +1,56 @@
 <template>
   <div class="home__container">    
+    <!-- techno utilisé -->
     <TechnoContainer />
+    <!-- hébergement -->
     <Hosting />
+    <!-- ma présentation -->
     <AboutMe />
-    <ContactMe />
+    <!-- formulaire de question -->
+    <ContactMe @sendMessage="sendMessage" />
   </div>  
 </template>
 
 <script>
+import tokenType from '../helper/tokenType';
 export default {
     name: 'HomePage', 
-    layout: 'addBanner'
+    layout: 'addBanner',
+    data(){
+        return {
+            token: null,
+        };        
+    },
+    created(){ 
+        this.getToken();    
+    },
+    methods: {  
+        /**
+         * Récupération d'un token de soumission du formulaire
+         */    
+        async getToken(){                  
+            const token = await this.$store.dispatch('actionHandler/wrapperAction', { action: 'token/getCsurfToken', data: tokenType.message.name});  
+            
+            /**vérification */
+            if(!token){
+                return null;
+            }
+            
+            this.token = token.token;
+        },
+
+        /**
+         * Envoie d'un message
+         */
+        async sendMessage(formData){            
+            if(this.token){
+                formData.append('token', this.token);
+            }
+            
+            await this.$store.dispatch('actionHandler/wrapperAction', { action: 'message/sendMessage', data: formData });            
+        }
+        
+    }
 };
 </script>
 

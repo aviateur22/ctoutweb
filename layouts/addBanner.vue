@@ -1,6 +1,7 @@
 <template>
-  <div class="layout__banner">
+  <div class="layout__banner">    
     <Navigation />
+    <FlashMessage />
     <Banner />
     <div class="main__container">
       <div class="container">
