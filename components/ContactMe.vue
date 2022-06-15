@@ -1,3 +1,4 @@
+/* eslint-disable vue/max-attributes-per-line */
 <template>  
   <article class="article">
     <!-- image -->
@@ -22,43 +23,71 @@
       </p>
     </header>
     <main class="article__main">
-      <form class="article__form">
+      <form class="article__form" @submit.prevent="sendMessage">
+        <!-- reason -->
+        <div class="article__input-container">
+          <label for="reason" class="article__label">Raison du message</label>
+          <input ref="reason" type="text" name="reason" placeholder="J'ai une question" class="article__input" required>        
+        </div>
+
         <!-- email -->
         <div class="article__input-container">
           <label for="email" class="article__label">Email</label>
-          <input type="email" name="email" placeholder="toto@hotmail.fr" class="article__input">        
+          <input ref="email" type="email" name="email" placeholder="toto@hotmail.fr" class="article__input" required>        
         </div>
 
         <!-- nom -->
         <div class="article__input-container">
           <label for="name" class="article__label">Nom et prénom</label>
-          <input type="text" name="name" placeholder="Jean Lagaffe" class="article__input">        
+          <input ref="name" type="text" name="name" placeholder="Jean Lagaffe" class="article__input" required>        
         </div>
 
         <!-- tel -->
         <div class="article__input-container">
           <label for="phone" class="article__label">Téléphone</label>
-          <input type="text" name="phone" placeholder="06 23 ..." class="article__input">        
+          <input ref="phone" type="text" name="phone" placeholder="06 23 ..." class="article__input" required>        
         </div>
 
         <!-- textaera -->
         <div class="article__input-container">
           <label for="message" class="article__label">Votre message</label>
-          <textarea type="text" name="message" placeholder="votre message" class="article__input input-area" />
+          <textarea ref="message" type="text" name="message" placeholder="votre message" class="article__input input-area" required />
         </div>
 
-        <input type="submit" value="envoyer" class="article__submit-button"> 
+        <input :disabled="disableSubmitButton" type="submit" value="envoyer" :class="{ button__disable: disableSubmitButton }" class="article__submit-button"> 
       </form>       
     </main>
   </article>
 </template>
 
 <script>
-export default {
+export default {    
+    props: ['disableSubmitButton'],
     data(){
         return {
-            flashVisibility: false
+            flashVisibility: false,
+            disableButton: false
         };
+    },    
+    methods: {
+        /**
+         * Envoie d'un message via le formulaire 
+         */
+        sendMessage(e){
+            const formData = new FormData(e.target);            
+            return this.$emit('sendMessage', formData);
+        },
+
+        /**
+         * Supprime le contenu du formaulaire
+         */
+        clearContent(){
+            this.$refs.email.value = '';
+            this.$refs.name.value = '';
+            this.$refs.reason.value = '';
+            this.$refs.phone.value = '';
+            this.$refs.message.value = '';
+        }
     }
 };
 </script>
@@ -147,6 +176,10 @@ export default {
 
   .article__submit-button:hover{
     background:rgba(0,0,0,0.1);
+  }
+
+  .button__disable{
+    background:rgba(0,0,0,0.5);
   }
 
   @media screen and (min-width:768px) {
