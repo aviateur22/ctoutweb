@@ -46,7 +46,7 @@ export default {
         async sendMessage(formData){   
             // désactive le button de soumission
             this.disableSubmitButton = true; 
-
+            
             if(this.token){
                 formData.append('token', this.token);
             }

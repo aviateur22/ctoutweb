@@ -1,0 +1,5 @@
+#DEV
+BASE_URI = http://localhost:5000
+
+#PROD
+#BASE_URI =
