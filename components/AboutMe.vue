@@ -2,7 +2,7 @@
   <article class="article">
     <header class="article__header">
       <!-- image -->
-      <div class="article__image-container">
+      <div data-aos="zoom-in-up" data-aos-duration="1000" class="article__image-container">
         <img class="article__image-square" src="~/assets/image/greenSquareBig.svg" alt="">
       </div>    
       <!-- titre -->

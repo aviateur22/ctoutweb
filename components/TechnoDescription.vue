@@ -110,7 +110,7 @@ export default {
     display: flex;
     flex-direction: column;    
     width: 100%;
-    padding: 3em 0em;
+    padding-bottom: 3em;
     align-items: center;
   }
 

@@ -3,7 +3,7 @@
   <article class="article">
     <!-- image -->
     <div class="article__image-container">
-      <img class="article__image-square" src="~/assets/image/greenSquareBig.svg" alt="">
+      <img data-aos="zoom-in-up" data-aos-duration="1000" class="article__image-square" src="~/assets/image/greenSquareBig.svg" alt="">
     </div>    
     <header class="article__header">
       <div class="article__flash-container">

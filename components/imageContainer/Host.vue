@@ -3,7 +3,7 @@
   <article class="logo">
     <!-- image -->
     <header class="logo__header">
-      <img class="logo__image" :src="require(`~/assets/image/${data.imageSource}`)" :alt="data.alt">
+      <img data-aos="zoom-in-down" :data-aos-delay="delayIn" class="logo__image" :src="require(`~/assets/image/${data.imageSource}`)" :alt="data.alt">
     </header>
   </article>
 </template>
@@ -11,8 +11,13 @@
 <script>
 export default {
     name: 'LogoTechno',
-    // eslint-disable-next-line vue/require-prop-types
-    props: ['data']
+    props: ['data'],
+    data() {
+        return {
+            delayOut: this.data.id * 100,
+            delayIn: this.data.id * 200
+        };
+    },    
 };
 </script>
 

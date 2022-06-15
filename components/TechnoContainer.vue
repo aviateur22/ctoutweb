@@ -8,7 +8,7 @@
       <!-- image + text -->
       <div class="techno__image-container">
         <!-- image -->
-        <img class="techno__image" src="~/assets/image/techno.png" alt="dessin d'une femme qui est devant un tableau">
+        <img src="~/assets/image/techno.png" alt="dessin d'une femme qui est devant un tableau">
         <!-- text -->
         <div class="techno__comment-container">
           <p class="techno__comment">
