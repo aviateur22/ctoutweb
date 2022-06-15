@@ -1,8 +1,8 @@
 <template>
   <!--liste de messages -->
   <section class="flash__section">
-    <div v-for="(flashMessage, i) in flashMessages" :key="i" :class="{background__red: flashMessage.error}" class="flash__Container">
-      <FlashText :text="flashMessage.message" :index="i" @removeMessage="removeMessage" />
+    <div v-for="(flashMessage) in flashMessages" :key="flashMessage.id" :class="{background__red: flashMessage.error}" class="flash__container">
+      <FlashText :data="flashMessage" @removeMessage="removeMessage" />
     </div>  
   </section>
 </template>
@@ -28,8 +28,7 @@ export default {
         */
         removeMessage(index){            
             return this.$store.commit('flashMessage/removeFlashMessage', index);
-        }
-      
+        }      
     },
 };
 </script>
@@ -46,11 +45,11 @@ export default {
     top:0px;
   }
 
-  .flash__Container{
+  .flash__container{
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(122, 199, 46,0.7);
+    background: rgba(0, 213, 168, 0.7);
     border:0.5px solid green;
     border-radius: 10px;
     padding: 0.5em;
@@ -58,24 +57,13 @@ export default {
     width: 100%;
   }
 
-  .list-move,
-  .list-enter-active,
-  .list-leave-active {
-      transition: all 1s;        
-  }
-  .list-enter,
-  .list-leave-to /* .list-leave-active below version 2.1.8 */ {
-      opacity: 0;
-      transform: translateX(30px);
-  }
-
-  .list-leave-active {
-      position: absolute;
-
+  .background__red{
+    background: rgba(255, 25, 0, 0.7) !important;
+    border:0.5px solid red !important;
   }
 
   @media  screen and (min-width: 768px) {
-    .flash__Container{
+    .flash__container{
       width: 768px;
     }    
   }

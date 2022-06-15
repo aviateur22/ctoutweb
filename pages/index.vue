@@ -6,8 +6,8 @@
     <Hosting />
     <!-- ma présentation -->
     <AboutMe />
-    <!-- formulaire de question -->
-    <ContactMe @sendMessage="sendMessage" />
+    <!-- formulaire de question -->    
+    <ContactMe ref="contactMe" :disableSubmitButton="disableSubmitButton" @sendMessage="sendMessage" />
   </div>  
 </template>
 
@@ -19,6 +19,7 @@ export default {
     data(){
         return {
             token: null,
+            disableSubmitButton: false,
         };        
     },
     created(){ 
@@ -42,12 +43,26 @@ export default {
         /**
          * Envoie d'un message
          */
-        async sendMessage(formData){            
+        async sendMessage(formData){   
+            // désactive le button de soumission
+            this.disableSubmitButton = true; 
+
             if(this.token){
                 formData.append('token', this.token);
             }
             
-            await this.$store.dispatch('actionHandler/wrapperAction', { action: 'message/sendMessage', data: formData });            
+            const sendMessage = await this.$store.dispatch('actionHandler/wrapperAction', { action: 'message/sendMessage', data: formData });            
+
+            //réactive le button de soumission
+            this.disableSubmitButton = false; 
+
+            // Echec
+            if(!sendMessage){
+                return null;
+            }
+
+            // Reste du formulaire
+            this.$refs.contactMe.clearContent();
         }
         
     }

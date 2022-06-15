@@ -22,10 +22,15 @@ module.exports = {
         semi: ['warn', 'always'],    
         'no-var': 'error',
         camelcase: 'warn',
+        'vue/max-attributes-per-line': ['warn', {
+            singleline: {
+                max: 10
+            }
+        }],      
         'no-trailing-spaces': ['off', {skipBlankLines: true, ignoreComments: false}],
         'space-before-function-paren': ['error', 'never'],
         'space-before-blocks': ['off', 'always'],
-        'spaced-comment': 'off',
+        'spaced-comment': 'off',        
         'keyword-spacing': [2,
             {
                 overrides: {
@@ -41,6 +46,7 @@ module.exports = {
         'eol-last': ['off', 'always'],
         'one-var': 'off',
         'comma-dangle': 'off',
-        'vue/multi-word-component-names': 0 
+        'vue/multi-word-component-names': 0,
+        'vue/require-prop-types': 'off',
     }
 };

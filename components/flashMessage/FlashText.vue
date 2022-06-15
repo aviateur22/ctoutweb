@@ -1,14 +1,15 @@
 <template>
   <p class="flash__text">
-    {{ text }}
+    {{ data.message }}
   </p>
 </template>
 
 <script>
 export default {
-    props: ['text', 'index'],
+    props: ['data'],
     data(){
         return {
+            id: this._uid,
             time: undefined
         };
     },
@@ -21,13 +22,18 @@ export default {
         */
         timer(){
             setTimeout(()=>{
-                this.$emit('removeMessage', this.index);
+                this.$emit('removeMessage', this.data);
             }, 5000);
         }
     }
 };
 </script>
 
-<style>
+<style scoped>
+    .flash__text{
+        text-transform: uppercase;
+        font-weight: 500;
+        color: white;
+    }
 
 </style>

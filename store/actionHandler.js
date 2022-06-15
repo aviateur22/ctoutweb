@@ -18,13 +18,12 @@ export const actions = {
              * Erreur coté client
              */
             if(!err.response?.data){  
-                console.log(err)
                 return state.commit('flashMessage/addFlashMessage', { message: err, error: true }, {root: true});
             }
             /**
              * Erreur coté API - statusCode > 400
              */
-            state.commit('flashMessage/addFlashMessage', { message: err.response.data, error: true }, {root: true});
+            state.commit('flashMessage/addFlashMessage', { message: err.response.data.errorMessage, error: true }, {root: true});
         }      
     }
 };

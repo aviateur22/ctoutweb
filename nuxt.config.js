@@ -27,7 +27,7 @@ export default {
     ],
 
     // Auto import components: https://go.nuxtjs.dev/config-components
-    components: true,
+    components: true,    
 
     // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
     buildModules: [
@@ -47,7 +47,9 @@ export default {
     // Axios module configuration: https://go.nuxtjs.dev/config-axios
     axios: {
         // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
-        baseURL: process.env.API_URL
+        baseURL: process.env.BASE_URI,
+        credentials: true,
+        progress: false       
     },
 
     // PWA module configuration: https://go.nuxtjs.dev/pwa

@@ -1,27 +1,20 @@
-import axios from 'axios'
+import axios from 'axios';
 export const actions = {
 
     /**
      * Centralisation de Axios
-     * @param {Object} data - données pour la requete - formd
+     * @param {Object} data - données pour la requete
      * @returns {object} - resultat de la requête
      */
-    async fetchAxios(data){
-        let request;
-        /** post/patch/get/delete */
-        switch (data.method){           
-        case 'post': 
-            request = await this.$axios.post(data.endPoint, data.payload);
-            return request;
-        case 'get':
-            request = await this.$axios.get(data.endPoint, data.payload);
-            return request.data;
-        case 'patch':
-            request = await this.$axios.patch(data.endPoint, data.payload);
-            return request.data;
-        case 'delete':
-            request = await this.$axios.delete(data.endPoint, data.payload);
-            return request.data;
-        }
+    async fetchAxios(state, data){     
+        const request = await axios({
+            withCredentials: true,
+            baseURL: process.env.BASE_URI,
+            url: data.endPoint,
+            method: data.method,     
+            responseType: data.responseType ? data.responseType : 'json',              
+            data: data.formData,           
+        });   
+        return request.data;
     }
 };

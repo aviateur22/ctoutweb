@@ -10,8 +10,8 @@ export const actions = {
      * @returns 
      */
     async sendMessage(state, data){       
-        const result = await this.$axios.post(utils.messageApi.sendMessage.endPoint, data, {credentials: true, root: true});        
-        state.commit('flashMessage/updateFlashMessage', { message: result.data.message, error: false }, {root: true});
+        const result = await this.$axios.post(utils.messageApi.sendMessage.endPoint, data, { credentials: true, root: true }); 
+        state.commit('flashMessage/addFlashMessage', { message: result.data.message, error: false }, {root: true});
         return result;
     }
 };

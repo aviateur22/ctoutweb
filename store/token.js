@@ -15,8 +15,9 @@ export const actions = {
         /**resultat de la requete */
         let request;        
         switch (data){
-        case tokenType.message.name: 
-            request = await this.$axios.get(utils.tokenApi.getToken.endPoint, {credentials: true, root: true});
+        /**Envoie d'un message */
+        case tokenType.message.name:             
+            request = await this.$axios.get(utils.tokenApi.getToken.endPoint, { root: true });
             return request.data;
         default:         
             // eslint-disable-next-line unicorn/error-message
