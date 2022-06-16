@@ -3,6 +3,7 @@
     <Navigation />
     <FlashMessage />
     <Banner />
+    <CookieBanner />
     <div class="main__container">
       <div class="container">
         <nuxt />
