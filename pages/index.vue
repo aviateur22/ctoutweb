@@ -29,9 +29,10 @@ export default {
         /**
          * Récupération d'un token de soumission du formulaire
          */    
-        async getToken(){                  
+        async getToken(){        
+            /**requête token */
             const token = await this.$store.dispatch('actionHandler/wrapperAction', { action: 'token/getCsurfToken', data: tokenType.message.name});  
-            
+
             /**vérification */
             if(!token){
                 return null;
