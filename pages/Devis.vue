@@ -34,7 +34,6 @@ export default {
 
   .article__header{
     width: 100%;
-    overflow: hidden;
   }
 
   .article__title{
@@ -47,8 +46,7 @@ export default {
     justify-content: center;
     align-items: center;  
     height: 100%;
-    padding: 5em;
-    max-width: 60%;
+    max-width: 90%;
   }
 
   .article__text{
@@ -92,5 +90,18 @@ export default {
       transform: translateX(0%);
       opacity:1;
     }
+}
+
+@media screen and (min-width: 768px) {
+  .article__main{   
+    padding: 2em;
+    max-width: 60%;
+  }  
+}
+
+@media screen and (min-width: 1024px) {
+  .article__main{   
+    padding: 5em;
+  }  
 }
 </style>
