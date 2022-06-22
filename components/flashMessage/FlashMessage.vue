@@ -53,8 +53,9 @@ export default {
     border:0.5px solid green;
     border-radius: 10px;
     padding: 0.5em;
-    margin: 0.5em;
-    width: 100%;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    width: 90%;
   }
 
   .background__red{

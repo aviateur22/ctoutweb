@@ -3,7 +3,7 @@
   <article class="logo">
     <!-- image -->
     <header class="logo__header">
-      <img data-aos="zoom-in-down" :data-aos-delay="delayIn" class="logo__image" :src="require(`~/assets/image/${data.imageSource}`)" :alt="data.alt">
+      <img data-aos="zoom-in-up" :data-aos-delay="delayIn" class="logo__image" :src="require(`~/assets/image/${data.imageSource}`)" :alt="data.alt">
     </header>
   </article>
 </template>
