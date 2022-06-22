@@ -25,7 +25,7 @@ export default {
   }
 
   .layout__banner{
-    animation: identifier 2s ease-in-out;
+    animation: identifier 1s ease-in-out;
   }
 
   .main__container{

@@ -3,7 +3,7 @@
   <article data-aos="flip-up" :data-aos-delay="delayOut" data-aos-duration="2000" class="logo">
     <!-- image -->
     <header class="logo__header">
-      <img data-aos="zoom-in-down" :data-aos-delay="delayIn" class="logo__image" :src="require(`~/assets/image/${data.imageSource}`)" :alt="data.alt">
+      <img data-aos="flip-left" :data-aos-delay="delayIn" class="logo__image" :src="require(`~/assets/image/${data.imageSource}`)" :alt="data.alt">
     </header>
     <!-- nom de techno -->
     <main class="logo__main">

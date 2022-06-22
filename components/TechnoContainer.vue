@@ -1,5 +1,5 @@
 <template>
-  <div class="techno">
+  <div id="techno" class="techno">
     <section class="techno__title-section">      
       <!-- titre -->
       <h2 class="techno__title-text">
@@ -128,7 +128,7 @@ export default {
     display: flex;
     width: 100%;
     flex-direction: column;    
-    background: #DEDDF5;
+    background: #EDECFF;
   }
 
   .techno__title-section{
